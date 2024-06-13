@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamers Archive</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gamers Archive</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Avaliação</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="avaliacao">
+            <h2>Qual sua avaliação para esse jogo?</h2>
+            <form id="form-avaliacao">
+                <label for="nome-jogo">Nome do Jogo</label>
+                <input type="text" id="nome-jogo" name="nome-jogo" required>
+
+                <label for="genero-jogo">Gênero</label>
+                <input type="text" id="genero-jogo" name="genero-jogo" required>
+
+                <label for="valor-jogo">Valor do Jogo</label>
+                <input type="text" id="valor-jogo" name="valor-jogo" required>
+
+                <label for="avaliacao-jogo">Avaliação</label>
+                <select id="avaliacao-jogo" name="avaliacao-jogo" required>
+                    <option value="">Escolha a avaliação para o jogo</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <label for="comentario-jogo">Comentário</label>
+                <textarea id="comentario-jogo" name="comentario-jogo"></textarea>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </section>
+        <section id="historico-avaliacoes">
+            <h2>Histórico de avaliações</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Gênero</th>
+                        <th>Valor</th>
+                        <th>Comentário</th>
+                        <th>Avaliação</th>
+                    </tr>
+                </thead>
+                <tbody id="historico-corpo">
+                    <!-- Linhas de avaliações serão inseridas aqui -->
+                </tbody>
+            </table>
+            <button id="carregar">Carregar</button>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Gamers Archive. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
