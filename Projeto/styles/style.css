@@ -12,6 +12,24 @@ body {
     min-height: 100vh;
 }
 
+.btnInit{
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        background-color:#450CBD;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: background-color 0.3s ease;
+}
+
+.btnInit:hover {
+    background-color: darkblue;
+}
+
 .container {
     width: 90%;
     margin: 0 auto; /* Centraliza o container */
