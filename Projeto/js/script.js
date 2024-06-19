@@ -143,6 +143,7 @@ $(document).ready(() => {
             const reader = new FileReader();
             reader.onload = (e) => {
                 const data = JSON.parse(e.target.result);
+                listaJogos = data;
                 $('#historico-corpo').html(listarJogo(listaJogos));
             };
             reader.readAsText(file);
