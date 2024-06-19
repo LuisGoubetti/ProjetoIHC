@@ -52,23 +52,6 @@ function listarJogo(lista) {
 }
 
 $(document).ready(() => { 
-
-    var alteracao = false;
-    function updateMainPadding() {
-        const numRows = listaJogos.length;
-        const thresholds = [12, 20, 30]; // Example thresholds where padding changes
-        const paddingValues = [20, 50, 100]; // Example padding values corresponding to thresholds
-
-        let padding = 20; // Default padding
-        const paddingMain = parseInt($("main").css("padding-bottom"), 10);
-        for (let i = 0; i < thresholds.length; i++) {
-            if (numRows >= thresholds[i] && !alteracao) {
-                padding = paddingValues[i] + paddingMain;
-            } else break;
-        }
-            $("main").css("padding-bottom", padding + "px");
-        
-    }
     
     $('#btSalvar').click((e) => {
         e.preventDefault();
@@ -88,9 +71,6 @@ $(document).ready(() => {
                 alterar(jogo, listaJogos, posicao);
                 posicao = '';
             }
-
-            updateMainPadding();
-            alteracao=false;
             $('#historico-corpo').html(listarJogo(listaJogos));
             $('input, textarea').val('');
         } else {
@@ -121,7 +101,6 @@ $(document).ready(() => {
 
     $('#historico-corpo').on('click', '.btAlterar', (evento) => {
         evento.preventDefault();
-        alteracao = true;
         posicao = evento.target.getAttribute('rel');
         $('#nome').val(listaJogos[posicao].nome);
         $('#genero').val(listaJogos[posicao].genero);
@@ -136,6 +115,14 @@ $(document).ready(() => {
             let pos = evento.target.getAttribute('rel');
             excluir(listaJogos, pos);
             $('#historico-corpo').html(listarJogo(listaJogos));
+           
+            const numRows = listaJogos.length;
+            const paddingMain = parseInt($("main").css("padding-bottom"), 10);
+            if(numRows>=14){
+                $("main").css("padding-bottom", (paddingMain-45)+"px");
+            } else if(numRows>=12){
+                $("main").css("padding-bottom", (paddingMain-20)+"px");
+            }
         }
     });
 
@@ -162,12 +149,11 @@ $(document).ready(() => {
             const reader = new FileReader();
             reader.onload = (e) => {
                 const data = JSON.parse(e.target.result);
-                listaJogos = data;
 
-                listaJogos.forEach(element => {
-                    updateMainPadding(); 
-                });
-
+                $("main").css("padding-bottom", 0+"px");
+                for (let i=0; i<data.length;i++){
+                    listaJogos[i] = data[i];
+                }
                 $('#historico-corpo').html(listarJogo(listaJogos));
             };
             reader.readAsText(file);
