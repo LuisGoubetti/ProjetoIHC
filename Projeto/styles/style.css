@@ -12,9 +12,23 @@ body {
     min-height: 100vh;
 }
 
+.bckImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
 .btnInit{
         display: inline-block;
         padding: 10px 20px;
+        margin: 10px 0px 10px;
         font-size: 20px;
         font-weight: bold;
         color: #fff;
@@ -23,11 +37,11 @@ body {
         border-radius: 8px;
         cursor: pointer;
         overflow: hidden;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease;       
 }
 
 .btnInit:hover {
-    background-color: darkblue;
+    background-color: #280379;
 }
 
 .container {
@@ -169,7 +183,7 @@ form label {
 
 form input, form select, form textarea, #trHistorico{
     background-color: #312b3d;
-    color: #88868d;
+    color: white;
     width: 100%;
     padding: 10px;
     margin-top: 5px;
