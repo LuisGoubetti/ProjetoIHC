@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamers Archive - Avaliação </title>
+    <title>Gamers Archive - Avaliação</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
     <header>
@@ -15,27 +17,89 @@
                 <ul>
                     <li><a href="index.html">Página Inicial</a></li>
                     <li><a href="contato.html">Contato</a></li>
-                    <li><a href="avaliacao.html"  class="pgatual">Avaliação</a></li>
+                    <li><a href="avaliacao.html" class="pgatual">Avaliação</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                 </ul>
             </nav>
             <div class="clear"></div>
-
         </div>
     </header>
     
     <main>
-        <h1>Avaliação</h1>
+        <section id="avaliacao">
+            <h2>Qual sua avaliação para esse jogo?</h2>
+            <form id="form-avaliacao">
+                <label for="nome-jogo">Nome do Jogo</label>
+                <input type="text" id="nome" name="nome-jogo" required placeholder="Digite o nome">
+
+                <label for="genero-jogo">Gênero</label>
+                <input type="text" id="genero" name="genero-jogo" required placeholder="Digite o gênero">
+
+                <label for="valor-jogo">Valor do Jogo</label>
+                <input type="number" step="0.01" id="valor" name="valor-jogo" required placeholder="Digite o valor pago pelo jogo">
+
+                <label for="avaliacao-jogo">Avaliação</label>
+                <select id="avaliacao-jogo" name="avaliacao-jogo" required>
+                    <option value="">Escolha a avaliação para o jogo</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <label for="comentario-jogo">Comentário</label>
+                <textarea id="comentario-jogo" name="comentario-jogo" placeholder="Deixe um comentário..."></textarea>
+                <br>
+                <button id="btSalvar" type="submit">Salvar</button>
+            </form>
+        </section>
+
+        <section id="historico-avaliacoes">
+            <h2>Histórico de avaliações</h2>
+            <div class="tbHistorico">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Gênero</th>
+                            <th>Valor</th>
+                            <th>Comentário</th>
+                            <th>Avaliação</th>
+                            <th>Alterar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historico-corpo">
+                        <!-- Linhas de avaliações serão inseridas aqui -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="button-container">
+                <button id="btBaixar">Baixar</button>
+                <button id="btCarregar">Carregar</button>
+                <input type="file" id="fileInput" style="display:none;">
+            </div>
+        </section>
+        <!--Modal-->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 id="modal-title"></h2>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-content"></p>
+                </div>
+            </div>
+        </div>
     </main>
     
     <footer>
         <div class="container">
             <img src="imagens/logotipo 1.png" class="logo">
-            <h1>Gamers Archive</h1>
-
-
+            <p>© 2024 Gamers Archive. Todos os direitos reservados.</p>
         </div>
     </footer>
-
 </body>
 </html>
