@@ -116,13 +116,6 @@ $(document).ready(() => {
             excluir(listaJogos, pos);
             $('#historico-corpo').html(listarJogo(listaJogos));
            
-            const numRows = listaJogos.length;
-            const paddingMain = parseInt($("main").css("padding-bottom"), 10);
-            if(numRows>=14){
-                $("main").css("padding-bottom", (paddingMain-45)+"px");
-            } else if(numRows>=12){
-                $("main").css("padding-bottom", (paddingMain-20)+"px");
-            }
         }
     });
 
