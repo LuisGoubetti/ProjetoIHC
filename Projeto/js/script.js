@@ -71,6 +71,7 @@ $(document).ready(() => {
                 alterar(jogo, listaJogos, posicao);
                 posicao = '';
             }
+
             $('#historico-corpo').html(listarJogo(listaJogos));
             $('input, textarea').val('');
         } else {
@@ -101,6 +102,7 @@ $(document).ready(() => {
 
     $('#historico-corpo').on('click', '.btAlterar', (evento) => {
         evento.preventDefault();
+
         posicao = evento.target.getAttribute('rel');
         $('#nome').val(listaJogos[posicao].nome);
         $('#genero').val(listaJogos[posicao].genero);
@@ -115,7 +117,6 @@ $(document).ready(() => {
             let pos = evento.target.getAttribute('rel');
             excluir(listaJogos, pos);
             $('#historico-corpo').html(listarJogo(listaJogos));
-           
         }
     });
 
@@ -142,11 +143,6 @@ $(document).ready(() => {
             const reader = new FileReader();
             reader.onload = (e) => {
                 const data = JSON.parse(e.target.result);
-
-                $("main").css("padding-bottom", 0+"px");
-                for (let i=0; i<data.length;i++){
-                    listaJogos[i] = data[i];
-                }
                 $('#historico-corpo').html(listarJogo(listaJogos));
             };
             reader.readAsText(file);
