@@ -226,7 +226,7 @@ th{
     margin-right: 20px;
 }
 .tbHistorico{
-    max-height: 1000px;
+    max-height: 520px;
     overflow-y: auto;
     margin: 0 auto; 
 }
